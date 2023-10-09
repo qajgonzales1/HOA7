@@ -1283,3 +1283,465 @@ The following NEW packages will be installed:
 2023-10-09 10:39:08,810 p=4334 u=gonzales |  PLAY RECAP *********************************************************************
 2023-10-09 10:39:08,810 p=4334 u=gonzales |  192.168.56.106             : ok=3    changed=1    unreachable=0    failed=0   
 2023-10-09 10:39:08,810 p=4334 u=gonzales |  192.168.56.108             : ok=4    changed=2    unreachable=0    failed=0   
+2023-10-09 22:42:35,055 p=1812 u=gonzales |  ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to have been in '/home/gonzales/HOA7/site.yml': line 29, column 14, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  - name:install terraform
+    unarchive:
+             ^ here
+
+2023-10-09 22:42:59,565 p=1829 u=gonzales |  PLAY [workstations] ************************************************************
+2023-10-09 22:42:59,581 p=1829 u=gonzales |  TASK [Gathering Facts gather_subset=!hardware,!facter,!ohai, gather_timeout=10] ***
+2023-10-09 22:43:00,775 p=1829 u=gonzales |  ok: [192.168.56.103]
+2023-10-09 22:43:00,780 p=1829 u=gonzales |  TASK [install unzip name=unzip] ************************************************
+2023-10-09 22:43:01,727 p=1829 u=gonzales |  ok: [192.168.56.103]
+2023-10-09 22:43:01,737 p=1829 u=gonzales |  TASK [install terraform src=https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip, group=root, mode=493, remote_src=True, dest=/usr/local/bin, owner=root] ***
+2023-10-09 22:43:07,801 p=1829 u=gonzales |  >f++++++.?? terraform
+
+2023-10-09 22:43:07,802 p=1829 u=gonzales |  changed: [192.168.56.103]
+2023-10-09 22:43:07,805 p=1829 u=gonzales |  PLAY [web_servers] *************************************************************
+2023-10-09 22:43:07,809 p=1829 u=gonzales |  TASK [Gathering Facts gather_subset=!hardware,!facter,!ohai, gather_timeout=10] ***
+2023-10-09 22:43:08,332 p=1829 u=gonzales |  ok: [192.168.56.103]
+2023-10-09 22:43:08,826 p=1829 u=gonzales |  ok: [192.168.56.105]
+2023-10-09 22:43:08,842 p=1829 u=gonzales |  TASK [copy default html file for site dest=/var/www/html/index.html, src=default_site.html, group=root, mode=420, owner=root] ***
+2023-10-09 22:43:09,798 p=1829 u=gonzales |  [0;31m--- before[0m
+[0;31m[0m[0;32m+++ after: /home/gonzales/HOA7/files/default_site.html[0m
+[0;32m[0m[0;36m@@ -0,0 +1 @@[0m
+[0;36m[0m[0;32m+Hi Goodmorning[0m
+[0;32m[0m
+
+2023-10-09 22:43:09,800 p=1829 u=gonzales |  changed: [192.168.56.105]
+2023-10-09 22:43:09,857 p=1829 u=gonzales |  [0;31m--- before: /var/www/html/index.html[0m
+[0;31m[0m[0;32m+++ after: /home/gonzales/HOA7/files/default_site.html[0m
+[0;32m[0m[0;36m@@ -1,375 +1 @@[0m
+[0;36m[0m[0;31m-[0m
+[0;31m[0m[0;31m-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">[0m
+[0;31m[0m[0;31m-<html xmlns="http://www.w3.org/1999/xhtml">[0m
+[0;31m[0m[0;31m-  <!--[0m
+[0;31m[0m[0;31m-    Modified from the Debian original for Ubuntu[0m
+[0;31m[0m[0;31m-    Last updated: 2016-11-16[0m
+[0;31m[0m[0;31m-    See: https://launchpad.net/bugs/1288690[0m
+[0;31m[0m[0;31m-  -->[0m
+[0;31m[0m[0;31m-  <head>[0m
+[0;31m[0m[0;31m-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />[0m
+[0;31m[0m[0;31m-    <title>Apache2 Ubuntu Default Page: It works</title>[0m
+[0;31m[0m[0;31m-    <style type="text/css" media="screen">[0m
+[0;31m[0m[0;31m-  * {[0m
+[0;31m[0m[0;31m-    margin: 0px 0px 0px 0px;[0m
+[0;31m[0m[0;31m-    padding: 0px 0px 0px 0px;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  body, html {[0m
+[0;31m[0m[0;31m-    padding: 3px 3px 3px 3px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #D8DBE2;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    font-family: Verdana, sans-serif;[0m
+[0;31m[0m[0;31m-    font-size: 11pt;[0m
+[0;31m[0m[0;31m-    text-align: center;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.main_page {[0m
+[0;31m[0m[0;31m-    position: relative;[0m
+[0;31m[0m[0;31m-    display: table;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    width: 800px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    margin-bottom: 3px;[0m
+[0;31m[0m[0;31m-    margin-left: auto;[0m
+[0;31m[0m[0;31m-    margin-right: auto;[0m
+[0;31m[0m[0;31m-    padding: 0px 0px 0px 0px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    border-width: 2px;[0m
+[0;31m[0m[0;31m-    border-color: #212738;[0m
+[0;31m[0m[0;31m-    border-style: solid;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #FFFFFF;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    text-align: center;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.page_header {[0m
+[0;31m[0m[0;31m-    height: 99px;[0m
+[0;31m[0m[0;31m-    width: 100%;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #F5F6F7;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.page_header span {[0m
+[0;31m[0m[0;31m-    margin: 15px 0px 0px 50px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    font-size: 180%;[0m
+[0;31m[0m[0;31m-    font-weight: bold;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.page_header img {[0m
+[0;31m[0m[0;31m-    margin: 3px 0px 0px 40px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    border: 0px 0px 0px;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.table_of_contents {[0m
+[0;31m[0m[0;31m-    clear: left;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    min-width: 200px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    margin: 3px 3px 3px 3px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #FFFFFF;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    text-align: left;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.table_of_contents_item {[0m
+[0;31m[0m[0;31m-    clear: left;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    width: 100%;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    margin: 4px 0px 0px 0px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #FFFFFF;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    color: #000000;[0m
+[0;31m[0m[0;31m-    text-align: left;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.table_of_contents_item a {[0m
+[0;31m[0m[0;31m-    margin: 6px 0px 0px 6px;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.content_section {[0m
+[0;31m[0m[0;31m-    margin: 3px 3px 3px 3px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #FFFFFF;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    text-align: left;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.content_section_text {[0m
+[0;31m[0m[0;31m-    padding: 4px 8px 4px 8px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    color: #000000;[0m
+[0;31m[0m[0;31m-    font-size: 100%;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.content_section_text pre {[0m
+[0;31m[0m[0;31m-    margin: 8px 0px 8px 0px;[0m
+[0;31m[0m[0;31m-    padding: 8px 8px 8px 8px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    border-width: 1px;[0m
+[0;31m[0m[0;31m-    border-style: dotted;[0m
+[0;31m[0m[0;31m-    border-color: #000000;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #F5F6F7;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    font-style: italic;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.content_section_text p {[0m
+[0;31m[0m[0;31m-    margin-bottom: 6px;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.content_section_text ul, div.content_section_text li {[0m
+[0;31m[0m[0;31m-    padding: 4px 8px 4px 16px;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.section_header {[0m
+[0;31m[0m[0;31m-    padding: 3px 6px 3px 6px;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    background-color: #8E9CB2;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    color: #FFFFFF;[0m
+[0;31m[0m[0;31m-    font-weight: bold;[0m
+[0;31m[0m[0;31m-    font-size: 112%;[0m
+[0;31m[0m[0;31m-    text-align: center;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.section_header_red {[0m
+[0;31m[0m[0;31m-    background-color: #CD214F;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.section_header_grey {[0m
+[0;31m[0m[0;31m-    background-color: #9F9386;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  .floating_element {[0m
+[0;31m[0m[0;31m-    position: relative;[0m
+[0;31m[0m[0;31m-    float: left;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.table_of_contents_item a,[0m
+[0;31m[0m[0;31m-  div.content_section_text a {[0m
+[0;31m[0m[0;31m-    text-decoration: none;[0m
+[0;31m[0m[0;31m-    font-weight: bold;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.table_of_contents_item a:link,[0m
+[0;31m[0m[0;31m-  div.table_of_contents_item a:visited,[0m
+[0;31m[0m[0;31m-  div.table_of_contents_item a:active {[0m
+[0;31m[0m[0;31m-    color: #000000;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.table_of_contents_item a:hover {[0m
+[0;31m[0m[0;31m-    background-color: #000000;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    color: #FFFFFF;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.content_section_text a:link,[0m
+[0;31m[0m[0;31m-  div.content_section_text a:visited,[0m
+[0;31m[0m[0;31m-   div.content_section_text a:active {[0m
+[0;31m[0m[0;31m-    background-color: #DCDFE6;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    color: #000000;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.content_section_text a:hover {[0m
+[0;31m[0m[0;31m-    background-color: #000000;[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-    color: #DCDFE6;[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-  div.validator {[0m
+[0;31m[0m[0;31m-  }[0m
+[0;31m[0m[0;31m-    </style>[0m
+[0;31m[0m[0;31m-  </head>[0m
+[0;31m[0m[0;31m-  <body>[0m
+[0;31m[0m[0;31m-    <div class="main_page">[0m
+[0;31m[0m[0;31m-      <div class="page_header floating_element">[0m
+[0;31m[0m[0;31m-        <img src="/icons/ubuntu-logo.png" alt="Ubuntu Logo" class="floating_element"/>[0m
+[0;31m[0m[0;31m-        <span class="floating_element">[0m
+[0;31m[0m[0;31m-          Apache2 Ubuntu Default Page[0m
+[0;31m[0m[0;31m-        </span>[0m
+[0;31m[0m[0;31m-      </div>[0m
+[0;31m[0m[0;31m-<!--      <div class="table_of_contents floating_element">[0m
+[0;31m[0m[0;31m-        <div class="section_header section_header_grey">[0m
+[0;31m[0m[0;31m-          TABLE OF CONTENTS[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="table_of_contents_item floating_element">[0m
+[0;31m[0m[0;31m-          <a href="#about">About</a>[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="table_of_contents_item floating_element">[0m
+[0;31m[0m[0;31m-          <a href="#changes">Changes</a>[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="table_of_contents_item floating_element">[0m
+[0;31m[0m[0;31m-          <a href="#scope">Scope</a>[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="table_of_contents_item floating_element">[0m
+[0;31m[0m[0;31m-          <a href="#files">Config files</a>[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-      </div>[0m
+[0;31m[0m[0;31m--->[0m
+[0;31m[0m[0;31m-      <div class="content_section floating_element">[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-        <div class="section_header section_header_red">[0m
+[0;31m[0m[0;31m-          <div id="about"></div>[0m
+[0;31m[0m[0;31m-          It works![0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="content_section_text">[0m
+[0;31m[0m[0;31m-          <p>[0m
+[0;31m[0m[0;31m-                This is the default welcome page used to test the correct [0m
+[0;31m[0m[0;31m-                operation of the Apache2 server after installation on Ubuntu systems.[0m
+[0;31m[0m[0;31m-                It is based on the equivalent page on Debian, from which the Ubuntu Apache[0m
+[0;31m[0m[0;31m-                packaging is derived.[0m
+[0;31m[0m[0;31m-                If you can read this page, it means that the Apache HTTP server installed at[0m
+[0;31m[0m[0;31m-                this site is working properly. You should <b>replace this file</b> (located at[0m
+[0;31m[0m[0;31m-                <tt>/var/www/html/index.html</tt>) before continuing to operate your HTTP server.[0m
+[0;31m[0m[0;31m-          </p>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-          <p>[0m
+[0;31m[0m[0;31m-                If you are a normal user of this web site and don't know what this page is[0m
+[0;31m[0m[0;31m-                about, this probably means that the site is currently unavailable due to[0m
+[0;31m[0m[0;31m-                maintenance.[0m
+[0;31m[0m[0;31m-                If the problem persists, please contact the site's administrator.[0m
+[0;31m[0m[0;31m-          </p>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="section_header">[0m
+[0;31m[0m[0;31m-          <div id="changes"></div>[0m
+[0;31m[0m[0;31m-                Configuration Overview[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="content_section_text">[0m
+[0;31m[0m[0;31m-          <p>[0m
+[0;31m[0m[0;31m-                Ubuntu's Apache2 default configuration is different from the[0m
+[0;31m[0m[0;31m-                upstream default configuration, and split into several files optimized for[0m
+[0;31m[0m[0;31m-                interaction with Ubuntu tools. The configuration system is[0m
+[0;31m[0m[0;31m-                <b>fully documented in[0m
+[0;31m[0m[0;31m-                /usr/share/doc/apache2/README.Debian.gz</b>. Refer to this for the full[0m
+[0;31m[0m[0;31m-                documentation. Documentation for the web server itself can be[0m
+[0;31m[0m[0;31m-                found by accessing the <a href="/manual">manual</a> if the <tt>apache2-doc</tt>[0m
+[0;31m[0m[0;31m-                package was installed on this server.[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-          </p>[0m
+[0;31m[0m[0;31m-          <p>[0m
+[0;31m[0m[0;31m-                The configuration layout for an Apache2 web server installation on Ubuntu systems is as follows:[0m
+[0;31m[0m[0;31m-          </p>[0m
+[0;31m[0m[0;31m-          <pre>[0m
+[0;31m[0m[0;31m-/etc/apache2/[0m
+[0;31m[0m[0;31m-|-- apache2.conf[0m
+[0;31m[0m[0;31m-|       `--  ports.conf[0m
+[0;31m[0m[0;31m-|-- mods-enabled[0m
+[0;31m[0m[0;31m-|       |-- *.load[0m
+[0;31m[0m[0;31m-|       `-- *.conf[0m
+[0;31m[0m[0;31m-|-- conf-enabled[0m
+[0;31m[0m[0;31m-|       `-- *.conf[0m
+[0;31m[0m[0;31m-|-- sites-enabled[0m
+[0;31m[0m[0;31m-|       `-- *.conf[0m
+[0;31m[0m[0;31m-          </pre>[0m
+[0;31m[0m[0;31m-          <ul>[0m
+[0;31m[0m[0;31m-                        <li>[0m
+[0;31m[0m[0;31m-                           <tt>apache2.conf</tt> is the main configuration[0m
+[0;31m[0m[0;31m-                           file. It puts the pieces together by including all remaining configuration[0m
+[0;31m[0m[0;31m-                           files when starting up the web server.[0m
+[0;31m[0m[0;31m-                        </li>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-                        <li>[0m
+[0;31m[0m[0;31m-                           <tt>ports.conf</tt> is always included from the[0m
+[0;31m[0m[0;31m-                           main configuration file. It is used to determine the listening ports for[0m
+[0;31m[0m[0;31m-                           incoming connections, and this file can be customized anytime.[0m
+[0;31m[0m[0;31m-                        </li>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-                        <li>[0m
+[0;31m[0m[0;31m-                           Configuration files in the <tt>mods-enabled/</tt>,[0m
+[0;31m[0m[0;31m-                           <tt>conf-enabled/</tt> and <tt>sites-enabled/</tt> directories contain[0m
+[0;31m[0m[0;31m-                           particular configuration snippets which manage modules, global configuration[0m
+[0;31m[0m[0;31m-                           fragments, or virtual host configurations, respectively.[0m
+[0;31m[0m[0;31m-                        </li>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-                        <li>[0m
+[0;31m[0m[0;31m-                           They are activated by symlinking available[0m
+[0;31m[0m[0;31m-                           configuration files from their respective[0m
+[0;31m[0m[0;31m-                           *-available/ counterparts. These should be managed[0m
+[0;31m[0m[0;31m-                           by using our helpers[0m
+[0;31m[0m[0;31m-                           <tt>[0m
+[0;31m[0m[0;31m-                                a2enmod,[0m
+[0;31m[0m[0;31m-                                a2dismod,[0m
+[0;31m[0m[0;31m-                           </tt>[0m
+[0;31m[0m[0;31m-                           <tt>[0m
+[0;31m[0m[0;31m-                                a2ensite,[0m
+[0;31m[0m[0;31m-                                a2dissite,[0m
+[0;31m[0m[0;31m-                            </tt>[0m
+[0;31m[0m[0;31m-                                and[0m
+[0;31m[0m[0;31m-                           <tt>[0m
+[0;31m[0m[0;31m-                                a2enconf,[0m
+[0;31m[0m[0;31m-                                a2disconf[0m
+[0;31m[0m[0;31m-                           </tt>. See their respective man pages for detailed information.[0m
+[0;31m[0m[0;31m-                        </li>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-                        <li>[0m
+[0;31m[0m[0;31m-                           The binary is called apache2. Due to the use of[0m
+[0;31m[0m[0;31m-                           environment variables, in the default configuration, apache2 needs to be[0m
+[0;31m[0m[0;31m-                           started/stopped with <tt>/etc/init.d/apache2</tt> or <tt>apache2ctl</tt>.[0m
+[0;31m[0m[0;31m-                           <b>Calling <tt>/usr/bin/apache2</tt> directly will not work</b> with the[0m
+[0;31m[0m[0;31m-                           default configuration.[0m
+[0;31m[0m[0;31m-                        </li>[0m
+[0;31m[0m[0;31m-          </ul>[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-        <div class="section_header">[0m
+[0;31m[0m[0;31m-            <div id="docroot"></div>[0m
+[0;31m[0m[0;31m-                Document Roots[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-        <div class="content_section_text">[0m
+[0;31m[0m[0;31m-            <p>[0m
+[0;31m[0m[0;31m-                By default, Ubuntu does not allow access through the web browser to[0m
+[0;31m[0m[0;31m-                <em>any</em> file apart of those located in <tt>/var/www</tt>,[0m
+[0;31m[0m[0;31m-                <a href="http://httpd.apache.org/docs/2.4/mod/mod_userdir.html" rel="nofollow">public_html</a>[0m
+[0;31m[0m[0;31m-                directories (when enabled) and <tt>/usr/share</tt> (for web[0m
+[0;31m[0m[0;31m-                applications). If your site is using a web document root[0m
+[0;31m[0m[0;31m-                located elsewhere (such as in <tt>/srv</tt>) you may need to whitelist your[0m
+[0;31m[0m[0;31m-                document root directory in <tt>/etc/apache2/apache2.conf</tt>.[0m
+[0;31m[0m[0;31m-            </p>[0m
+[0;31m[0m[0;31m-            <p>[0m
+[0;31m[0m[0;31m-                The default Ubuntu document root is <tt>/var/www/html</tt>. You[0m
+[0;31m[0m[0;31m-                can make your own virtual hosts under /var/www. This is different[0m
+[0;31m[0m[0;31m-                to previous releases which provides better security out of the box.[0m
+[0;31m[0m[0;31m-            </p>[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-        <div class="section_header">[0m
+[0;31m[0m[0;31m-          <div id="bugs"></div>[0m
+[0;31m[0m[0;31m-                Reporting Problems[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-        <div class="content_section_text">[0m
+[0;31m[0m[0;31m-          <p>[0m
+[0;31m[0m[0;31m-                Please use the <tt>ubuntu-bug</tt> tool to report bugs in the[0m
+[0;31m[0m[0;31m-                Apache2 package with Ubuntu. However, check <a[0m
+[0;31m[0m[0;31m-                href="https://bugs.launchpad.net/ubuntu/+source/apache2"[0m
+[0;31m[0m[0;31m-                rel="nofollow">existing bug reports</a> before reporting a new bug.[0m
+[0;31m[0m[0;31m-          </p>[0m
+[0;31m[0m[0;31m-          <p>[0m
+[0;31m[0m[0;31m-                Please report bugs specific to modules (such as PHP and others)[0m
+[0;31m[0m[0;31m-                to respective packages, not to the web server itself.[0m
+[0;31m[0m[0;31m-          </p>[0m
+[0;31m[0m[0;31m-        </div>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;31m-      </div>[0m
+[0;31m[0m[0;31m-    </div>[0m
+[0;31m[0m[0;31m-    <div class="validator">[0m
+[0;31m[0m[0;31m-    </div>[0m
+[0;31m[0m[0;31m-  </body>[0m
+[0;31m[0m[0;31m-</html>[0m
+[0;31m[0m[0;31m-[0m
+[0;31m[0m[0;32m+Hi Goodmorning[0m
+[0;32m[0m
+
+2023-10-09 22:43:09,858 p=1829 u=gonzales |  changed: [192.168.56.103]
+2023-10-09 22:43:09,859 p=1829 u=gonzales |  PLAY RECAP *********************************************************************
+2023-10-09 22:43:09,860 p=1829 u=gonzales |  192.168.56.103             : ok=5    changed=2    unreachable=0    failed=0   
+2023-10-09 22:43:09,860 p=1829 u=gonzales |  192.168.56.105             : ok=2    changed=1    unreachable=0    failed=0   
+2023-10-09 23:07:46,759 p=2189 u=gonzales |  ERROR! no action detected in task. This often indicates a misspelled module name, or incorrect module path.
+
+The error appears to have been in '/home/gonzales/HOA7/roles/base/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: all
+  ^ here
+
+2023-10-09 23:09:32,715 p=2209 u=gonzales |  ERROR! no action detected in task. This often indicates a misspelled module name, or incorrect module path.
+
+The error appears to have been in '/home/gonzales/HOA7/roles/base/tasks/main.yml': line 2, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+-  hosts: all
+   ^ here
+
+2023-10-09 23:11:34,958 p=2251 u=gonzales |  ERROR! no action detected in task. This often indicates a misspelled module name, or incorrect module path.
+
+The error appears to have been in '/home/gonzales/HOA7/roles/base/tasks/main.yml': line 3, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+-  hosts: all
+   ^ here
+
+2023-10-09 23:14:15,225 p=2269 u=gonzales |  ERROR! no action detected in task. This often indicates a misspelled module name, or incorrect module path.
+
+The error appears to have been in '/home/gonzales/HOA7/roles/base/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: all
+  ^ here
+
